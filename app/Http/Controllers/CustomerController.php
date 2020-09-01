@@ -22,8 +22,7 @@ class CustomerController extends Controller
         return view('karyawan.customer.index',compact('customers'));
         }
 
-        App::abort(403, 'You Cannot view this project');
-
+      
         
     }
 
@@ -45,6 +44,16 @@ class CustomerController extends Controller
      */
     public function store(Request $request)
     {
+
+        $this->validate($request, [
+            'nama' => 'required',
+            'email' => 'required|unique:customers',
+            'alamat' => 'required',
+            'kelamin' => 'required',
+            'no_telp' => 'required',
+            
+        ]);
+
         if (Customer::where('email', $request->email)->exists()) {
             return redirect()->back()->withErrors(['errors' => 'Email Sudah Terdaftar !!']);
         }
@@ -94,6 +103,15 @@ class CustomerController extends Controller
      */
     public function update(Request $request, $id)
     {
+        $this->validate($request, [
+            'nama' => 'required',
+           
+            'alamat' => 'required',
+            'kelamin' => 'required',
+            'no_telp' => 'required',
+            
+        ]);
+
         $addplg = Customer::find($id);
         $addplg->nama = $request->nama;
         $addplg->email = $request->email;

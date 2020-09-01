@@ -37,14 +37,22 @@ Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
     Route::get('/harga/{id}/destroy','HargaController@destroy');
 
 
+    Route::get('/laporan/laundry','LaporanController@indexlaundry');
+
 });
 
 
 Route::group(['middleware' => ['auth','CheckRole:admin,karyawan']], function () {
 
     Route::get('/dashboard','DashboardController@index');
+    Route::get('/dashboard/keuangan','DashboardController@keuangan');
+    Route::get('/dashboard/keuangan/hari','DashboardController@keuanganhari');
+    Route::get('/dashboard/keuangan/bulan','DashboardController@keuanganbulan');
+    Route::get('/dashboard/keuangan/tahun','DashboardController@keuangantahun');
 
     Route::get('/keuangan','KeuanganController@index');
+
+    // Route::get('/laporan','LaporanController@index');
 
     Route::get('/password/{id}/edit','AuthController@getpassword');
     Route::post('/password/{id}/update','AuthController@postpassword');
@@ -76,6 +84,7 @@ Route::group(['middleware' => ['auth','CheckRole:admin,karyawan']], function () 
     Route::post('/transaksi/{id}/selesai/update','TransaksiController@updateselesai');
     Route::post('/transaksi/{id}/ambil/update','TransaksiController@updateambil');
     Route::get('/invoice/{id}','TransaksiController@invoice');
+    Route::post('/invoice/filter','LaporanController@invoicefilter');
 
 
 });

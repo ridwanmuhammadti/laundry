@@ -9,6 +9,11 @@
 <div class="alert alert-danger">{{ $message }}</div>
 @enderror
 
+@foreach ($errors->all() as $error)
+<div class="alert alert-danger">
+    {{ $error }}
+  </div>
+@endforeach
         <form action="/customer/{{ $customer->id }}/update" method="post" enctype="multipart/form-data">
             {{ csrf_field() }}
             <div class="form-group">
@@ -17,7 +22,7 @@
             </div>
             <div class="form-group">
                 <label for="">Email</label>
-                <input type="text" name="email" id="" class="form-control"  value="{{ $customer->email }}">
+                <input type="text" name="email" id="" class="form-control"  value="{{ $customer->email }}" readonly>
             </div>
             <div class="form-group">
                 <label for="">Jenis Kelamin</label>

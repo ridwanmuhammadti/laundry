@@ -90,14 +90,21 @@
            
                 
             <li class="menu-header">Dashboard</li>
-            <li><a class="nav-link" href="/dashboard"><i class="far fa-square"></i> <span>Dashboard</span></a></li>
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/dashboard">Laundry</a></li>
+                <li><a href="/dashboard/keuangan" class="nav-link">Keuangan</a></li>
+                
+              </ul>
+            </li>
             <li class="menu-header">Starter</li>
             @if (auth()->user()->role == 'admin')
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Users</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/admin">Admin</a></li>
                 <li><a href="/karyawan" class="nav-link">Karyawan</a></li>
+                <li><a href="/penggajian" class="nav-link">Penggajian</a></li>
                 
               </ul>
             </li>
@@ -122,6 +129,14 @@
 
             <li><a class="nav-link" href="/transaksi"><i class="far fa-user"></i> <span>Transaksi</span></a></li>
 
+            <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Laporan</span></a>
+              <ul class="dropdown-menu">
+                <li><a class="nav-link" href="/laporan/laundry">Laundry</a></li>
+                {{-- <li><a href="/transaksi" class="nav-link">Trash</a></li> --}}
+                
+              </ul>
+            </li>
             @elseif ( auth()->user()->role == 'karyawan')
                 
            
@@ -198,6 +213,7 @@
 <!-- Template JS File -->
 <script src="{{asset('/backend')}}/assets/js/scripts.js"></script>
 <script src="{{asset('/backend')}}/assets/js/custom.js"></script>
+<script src="{{asset('/backend')}}/assets/js/page/index.js"></script>
 <script>
   @if(Session::has('success'))
   toastr.success("{{ Session::get('success') }}", "success")
