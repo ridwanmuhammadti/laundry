@@ -52,6 +52,10 @@ class DashboardController extends Controller
             $tahun = $pemasukantahun->sum('total');
 
 
+            $chart = Transaksi::where(DB::raw("(DATE_FORMAT(updated_at,'%Y'))"),date('Y'))
+                    ->get();
+            dd($chart);
+
             // dd($total);
             return view('dashboard.keuangan',compact('pemasukanhari','pemasukanbulan','pemasukantahun','days','day','bulan','tahun'));
         } else {

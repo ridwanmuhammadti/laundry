@@ -30,6 +30,12 @@ Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
     Route::post('/karyawan/store','KaryawanController@store');
     Route::get('/karyawan/{id}/destroy','KaryawanController@destroy');
 
+    Route::get('/penggajian','GajiController@index');
+    Route::get('/gaji/{id}','GajiController@create');
+    Route::get('/gaji/{id}/cetak','GajiController@cetak');
+    Route::get('/gaji/{id}/show','GajiController@show');
+    Route::post('/gaji/{id}/store','GajiController@store');
+
     Route::get('/harga','HargaController@index');
     Route::post('/harga/store','HargaController@store');
     Route::get('/harga/{id}/edit','HargaController@edit');
