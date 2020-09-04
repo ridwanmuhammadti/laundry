@@ -108,14 +108,7 @@
                 
               </ul>
             </li>
-            <li class="dropdown">
-              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Manajemen</span></a>
-              <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/keuangan">Keuangan</a></li>
-                <li><a href="/pengeluaran" class="nav-link">Pengeluaran</a></li>
-                
-              </ul>
-            </li>
+           
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Laundry</span></a>
               <ul class="dropdown-menu">
@@ -170,7 +163,7 @@
 
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+          Copyright &copy; 2020 <div class="bullet"></div> Arsya Laundry</a>
         </div>
         <div class="footer-right">
           

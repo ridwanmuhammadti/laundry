@@ -8,7 +8,10 @@
 
     <div class="col-12 col-md-12 col-lg-12">
       <div class="card">
-
+        <div class="card-header">
+          <a href="/keuangan/hari/cetak" class="btn btn-sm btn-primary" target="_blank"><i class="fas fa-print"></i></i></a>
+             
+        </div>
       
           <div class="card">
             <div class="card-body">

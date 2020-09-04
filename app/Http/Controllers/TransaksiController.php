@@ -18,10 +18,10 @@ class TransaksiController extends Controller
     {
         if(auth()->user()->role == 'admin'){
 
-            $transaksis = Transaksi::all();
+            $transaksis = Transaksi::orderBy('created_at','DESC')->get();
             return view('karyawan.transaksi.index',compact('transaksis'));
         } else {
-            $transaksis = Transaksi::orderBy('id','DESC')->where('user_id',Auth::user()->id)->get();
+            $transaksis = Transaksi::orderBy('created_at','DESC')->where('user_id',Auth::user()->id)->get();
         // dd($transaksis);
         return view('karyawan.transaksi.index',compact('transaksis'));
         }

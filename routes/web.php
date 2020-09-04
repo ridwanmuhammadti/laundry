@@ -56,7 +56,9 @@ Route::group(['middleware' => ['auth','CheckRole:admin,karyawan']], function () 
     Route::get('/dashboard/keuangan/bulan','DashboardController@keuanganbulan');
     Route::get('/dashboard/keuangan/tahun','DashboardController@keuangantahun');
 
-    Route::get('/keuangan','KeuanganController@index');
+    Route::get('/keuangan/hari/cetak','DashboardController@cetakhari');
+    Route::get('/keuangan/bulan/cetak','DashboardController@cetakbulan');
+    Route::get('/keuangan/tahun/cetak','DashboardController@cetaktahun');
 
     // Route::get('/laporan','LaporanController@index');
 

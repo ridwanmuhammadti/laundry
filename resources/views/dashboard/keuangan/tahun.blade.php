@@ -8,7 +8,10 @@
 
     <div class="col-12 col-md-12 col-lg-12">
       <div class="card">
-
+        <div class="card-header">
+          <a href="/keuangan/tahun/cetak" class="btn btn-sm btn-primary" target="_blank"><i class="fas fa-print"></i></i></a>
+             
+        </div>
           <div class="card">
             <div class="card-body">
           <table class="table table-striped" id="table-1">
@@ -21,10 +24,8 @@
                 <th>Status Payment</th>
                 <th>Jenis Laundry</th>
                 <th>Total</th>
-                @if (auth()->user()->role == 'karyawan')
-                    
+                
                 <th>Details</th>
-                @endif
               </tr>
             </thead>
             <tbody>

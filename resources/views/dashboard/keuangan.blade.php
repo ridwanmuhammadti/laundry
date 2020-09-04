@@ -4,6 +4,10 @@
 @endsection
 
 @section('content')
+
+<div class="row">
+  <div class="card">
+  <div class="card-body">
 <div class="row">
   <div class="col-12 col-md-4 col-lg-4">
     <div class="pricing pricing-highlight">
@@ -87,70 +91,121 @@
     </div>
   </div>
 </div>
+  </div>
+  </div>
 
+  <div class="card">
+    <div class="card-body">
 <div class="row">
-  <div class="col-12 col-md-12 col-lg-12">
-  <div class="" id="chartPemasukan"></div>
+  <div class="col-12 col-md-12">
+  <div id="chartPemasukan" style="height: 400px; width: 1020px"></div>
   </div>
 </div>
+</div>
+</div>
+  <div class="card">
+    <div class="card-body">
+<div class="row">
+  <div class="col-12 col-md-12">
+  <div id="chartPemasukanBulan" style="height: 400px; width: 1020px"></div>
+  </div>
+</div>
+</div>
+</div>
+@if (auth()->user()->role == 'admin')
+    
+  {{-- <div class="card">
+  <div class="card-body">
 
+    <div class="row">
+      <div class="col-12 col-md-6">
+    <h1>{{ $chart1->options['chart_title'] }}</h1>
+    {!! $chart1->renderHtml() !!}
+  </div>
+  <div class="col-12 col-md-6">
+    <h1>{{ $chart2->options['chart_title'] }}</h1>
+    {!! $chart2->renderHtml() !!}
+  </div>
+  </div>
+</div>
+</div> --}}
+
+@endif
 @endsection
 
 @section('script')
+
+  {!! $chart1->renderChartJsLibrary() !!}
+{!! $chart1->renderJs() !!}
+{!! $chart2->renderJs() !!}
 <script src="https://code.highcharts.com/highcharts.js"></script>
 
 <script>
-  Highcharts.chart('chartPemasukan', {
+ Highcharts.chart('chartPemasukan', {
     chart: {
-        type: 'column'
+        type: 'line'
     },
     title: {
-        text: 'Laporan Pemasukan Bulanan'
+        text: 'Pemasukan Harian'
     },
-   
-
+    subtitle: {
+        text: 'Laundry'
+    },
     xAxis: {
-        categories: [
-            'Jan',
-            'Feb',
-            'Mar',
-            'Apr',
-            'May',
-            'Jun',
-            'Jul',
-            'Aug',
-            'Sep',
-            'Oct',
-            'Nov',
-            'Dec'
-        ],
-        crosshair: true
+        categories:{!! json_encode($hari) !!}
     },
     yAxis: {
-        min: 0,
         title: {
-            text: 'Jumlah'
+            text: 'Total '
         }
     },
-    tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-            '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: '</table>',
-        shared: true,
-        useHTML: true
-    },
     plotOptions: {
-        column: {
-            pointPadding: 0.2,
-            borderWidth: 0
+        line: {
+            dataLabels: {
+                enabled: true
+            },
+            enableMouseTracking: false
         }
     },
     series: [{
-        name: 'Tokyo',
-        data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4]
-
-    }]
+        name: 'Pemasukan',
+        data: {!! json_encode($total) !!}
+    },]
 });
 </script>
+
+
+<script>
+  Highcharts.chart('chartPemasukanBulan', {
+     chart: {
+         type: 'line'
+     },
+     title: {
+         text: 'Pemasukan Bulanan'
+     },
+     subtitle: {
+         text: 'Laundry'
+     },
+     xAxis: {
+         categories:{!! json_encode($bulanchart) !!}
+     },
+     yAxis: {
+         title: {
+             text: 'Total '
+         }
+     },
+     plotOptions: {
+         line: {
+             dataLabels: {
+                 enabled: true
+             },
+             enableMouseTracking: false
+         }
+     },
+     series: [{
+         name: '2020',
+         data: {!! json_encode($totalbulan) !!}
+     },]
+ });
+ </script>
 @endsection

@@ -15,6 +15,7 @@
         "guzzlehttp/guzzle": "^6.3",
         "laravel/framework": "^7.0",
         "laravel/tinker": "^2.0",
+        "laraveldaily/laravel-charts": "^0.1.24",
         "yajra/laravel-datatables-oracle": "~9.0"
     },
     "require-dev": {
