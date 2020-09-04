@@ -104,7 +104,7 @@
         
           <div class="w-100 d-sm-none"></div>
           <div class="float-right mt-sm-0 mt-3">
-            <a href="/cetak/{{ $user->id }}/kartu" class="btn btn-primary">Cetak Kartu <i class="fas fa-chevron-right"></i></a>
+            <a href="/cetak/{{ $user->id }}/kartu" target="_blank" class="btn btn-primary">Cetak Kartu <i class="fas fa-chevron-right"></i></a>
           </div>
         </div>
       </div>

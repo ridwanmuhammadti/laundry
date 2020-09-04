@@ -44,6 +44,8 @@ Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
 
 
     Route::get('/laporan/laundry','LaporanController@indexlaundry');
+    Route::get('/laundry/cetak','LaporanController@cetaklaundry');
+    Route::post('/cetak/laundry/filterwaktu','LaporanController@cetakfilterlaundry');
 
 });
 
@@ -67,6 +69,7 @@ Route::group(['middleware' => ['auth','CheckRole:admin,karyawan']], function () 
     
     Route::get('/karyawan/{id}/edit','KaryawanController@edit');
     Route::post('/karyawan/{id}/update','KaryawanController@update');
+    Route::get('/cetak/{id}/kartu','KaryawanController@cetakkartu');
 
     Route::get('/profile/{id}','AuthController@profile');
 

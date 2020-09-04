@@ -20,6 +20,7 @@ class GajiController extends Controller
         $gaji = Gaji::all();
         $gajikaryawan = Gaji::select('user_id')->get();
 
+        
         // dd($gajikaryawan);
         return view('admin.gaji.index',compact('gaji','users','gajikaryawan'));
     }
@@ -27,7 +28,7 @@ class GajiController extends Controller
     public function create($id){
         $days = Carbon::now()->locale('id');
         
-        $pemasukanbulan = Transaksi::where('status_order','Clear')->where('user_id',$id) ->whereMonth('created_at', '=', $days)->get();
+        $pemasukanbulan = Transaksi::where('status_order','Clear')->where('user_id',$id) ->whereMonth('updated_at', '=', $days)->get();
         $bulan = $pemasukanbulan->sum('total');
         $bonus = ($bulan * 20) / 100;
         // dd($bonus);

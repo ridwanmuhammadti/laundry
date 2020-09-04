@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use PDF;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -129,5 +130,12 @@ class KaryawanController extends Controller
         $del->delete();
 
         return back();
+    }
+
+
+    public function cetakkartu($id){
+        $data = User::find($id);
+        return PDF::loadview('laporan.cetak-kartu',compact('data'))->setPaper('legal', 'potrait')->stream();
+
     }
 }

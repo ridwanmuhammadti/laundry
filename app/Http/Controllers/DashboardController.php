@@ -109,15 +109,13 @@ class DashboardController extends Controller
         
             $chart2 = new LaravelChart($chart_options);
 
-            $transaction = Transaksi::select(DB::raw('Month(updated_at) as date,sum(total) as totals'))
-            
-            ->groupBy(DB::raw('Month(updated_at)'))->get();
-            
-
+          
             $transaksi = Transaksi::selectRaw('year(updated_at) year, monthname(updated_at) month, sum(total) total')
                 ->groupBy('year', 'month')
                 ->orderBy('year', 'desc')
                 ->get();
+
+            // dd($transaksi);
        
             $yearschart = [];
             $bulanchart = [];
@@ -189,7 +187,7 @@ class DashboardController extends Controller
             $chart2 = new LaravelChart($chart_options);
 
             
-            $transaksi = Transaksi::selectRaw('year(updated_at) year, monthname(updated_at) month, sum(total) total')
+            $transaksi = Transaksi::where('user_id',Auth::user()->id)->selectRaw('year(updated_at) year, monthname(updated_at) month, sum(total) total')
                 ->groupBy('year', 'month')
                 ->orderBy('year', 'desc')
                 ->get();
