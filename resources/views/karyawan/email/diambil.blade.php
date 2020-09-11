@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Arsya Laundry Banjarbaru</title>
+    <title>Laundry Anda Banjarbaru</title>
 </head>
 <body>
     <p>Halo, {{$customer->nama}} </p>
@@ -13,6 +13,6 @@
     <br>
     
     <p>Terima kasih,</p>
-    <p>Arsya Laundry Banjarbaru</p>
+    <p>Laundry Anda Banjarbaru</p>
 </body>
 </html>

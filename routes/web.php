@@ -46,6 +46,7 @@ Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
     Route::get('/laporan/laundry','LaporanController@indexlaundry');
     Route::get('/laundry/cetak','LaporanController@cetaklaundry');
     Route::post('/cetak/laundry/filterwaktu','LaporanController@cetakfilterlaundry');
+    Route::post('/cetak/customer','LaporanController@cetakcustomer');
 
 });
 
@@ -79,6 +80,7 @@ Route::group(['middleware' => ['auth','CheckRole:admin,karyawan']], function () 
     Route::get('/customer/{id}/edit','CustomerController@edit');
     Route::post('/customer/{id}/update','CustomerController@update');
     Route::get('/customer/{id}/destroy','CustomerController@destroy');
+    Route::get('/customer/{id}/show','CustomerController@show');
 
     Route::get('/transaksi','TransaksiController@index');
     Route::get('/transaksi/create','TransaksiController@create');

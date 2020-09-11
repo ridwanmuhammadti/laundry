@@ -32,6 +32,7 @@
                 <th>Alamat</th>
                 <th>No Telpon</th>
                 <th>Action</th>
+                <th>Detail</th>
               </tr>
             </thead>
             <tbody>
@@ -52,6 +53,10 @@
                 <td>
                   <a href="/customer/{{$item->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
                   <a href="/customer/{{$item->id}}/destroy" class="btn btn-danger btn-sm">Hapus</a>
+                </td>
+                <td>
+                  <a href="/customer/{{ $item->id }}/show" class="btn btn-sm btn-primary"><i class="fas fa-search-dollar"></i></i></a>
+              
                 </td>
               </tr>
           @endforeach

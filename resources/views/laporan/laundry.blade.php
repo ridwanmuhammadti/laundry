@@ -147,6 +147,34 @@
               </div>
          
             </div>
+       <div class="card">
+              <div class="card-header centered" style="text-align: center">
+                    <h4 >Cetak Customer</h4>
+              </div>
+              <div class="card-body">
+                <form action="/cetak/customer" method="POST" enctype="multipart/form-data" target="_blank">
+                  @csrf
+               
+
+                  <div class="row justify-content-center">
+
+                    @foreach ($user as $item)
+                     
+                  <div class="custom-control custom-checkbox ml-3">
+                    <input type="checkbox" class="custom-control-input" id="{{ $item->nama_cabang }}" name="id[]" value="{{ $item->id }}">
+                    <label class="custom-control-label" for="{{ $item->nama_cabang }}">{{ $item->nama_cabang }}</label>
+                  </div>
+                   
+                  @endforeach
+                </div>
+                  <div style="text-align: center">
+                      <button type="submit" class="btn btn-primary ml-3 mt-3"><i class="fa fa-print"></i>
+                          Cetak Cabang</button>
+                        </div>
+                </form>
+              </div>
+         
+            </div>
 
       </div>
   </div>

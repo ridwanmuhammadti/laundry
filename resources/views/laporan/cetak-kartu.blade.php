@@ -91,7 +91,7 @@
                </tr>
 
                <tr>
-                   <th colspan="2" style="width: 75%">LAUNDRY ARSYA</th>
+                   <th colspan="2" style="width: 75%">LAUNDRY ANDA</th>
                </tr>
            
             </tbody>

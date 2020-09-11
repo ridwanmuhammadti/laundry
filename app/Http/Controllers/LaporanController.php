@@ -6,6 +6,7 @@ use App\Customer;
 use Carbon\Carbon;
 use PDF;
 use App\Transaksi;
+use App\User;
 use Illuminate\Http\Request;
 
 class LaporanController extends Controller
@@ -14,6 +15,8 @@ class LaporanController extends Controller
       
     }
     public function indexlaundry(){
+        $user = User::where('id','!=',auth()->user()->id)->get();
+        // dd($user);
         $customers = Customer::all();
         $transaksi = Transaksi::all();
         $customers = Customer::all()->count();
@@ -22,7 +25,7 @@ class LaporanController extends Controller
         $diambil = Transaksi::where('status_order','Clear')->count();
         $sp = Transaksi::where('status_order','Proses')->count();
         $proses = Transaksi::whereIN('status_order',['Proses','Selesai'])->get();
-        return view('laporan.laundry',compact('proses','customers','masuk','selesai','diambil','sp'));
+        return view('laporan.laundry',compact('user','proses','customers','masuk','selesai','diambil','sp'));
     }
 
     public function cetaklaundry(Request $request)
@@ -65,14 +68,16 @@ class LaporanController extends Controller
         return $pdf->stream('Laporan Riwayat .pdf');
     }
 
-    public function invoicefilter(Request $request){
-        $data = Riwayat::whereBetween('created_at', [$request->tanggal_mulai, $request->tanggal_akhir])->get();
+  
+    public function cetakcustomer(Request $request){
+
+        // dd($request->all());
+        $days = Carbon::now()->locale('id');
+        $data = Customer::whereIN('user_id',$request->id)->get();
         // dd($data);
 
-        $tgl_mulai = $request->tanggal_mulai;
-        $tgl_akhir = $request->tanggal_akhir;
-        $tgl = Carbon::now();
-        $pdf = PDF::loadView('backend.laporan.riwayatfilterwaktu', ['data' => $data, 'tgl' => $tgl, 'tgl_mulai' => $tgl_mulai, 'tgl_akhir' => $tgl_akhir]);
+        
+        $pdf = PDF::loadView('laporan.cetak-customer',compact('data'));
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Riwayat .pdf');
     }

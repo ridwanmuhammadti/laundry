@@ -26,14 +26,14 @@
             margin-bottom:15px;
         }
         table{
-            border:0px solid #333;
+            /* border:0px solid #333; */
             border-collapse:collapse;
             margin:0 auto;
             width:100%;
         }
         td, tr, th{
             padding:12px;
-            border:1px solid #333;
+            /* border:1px solid #333; */
             width:auto;
         }
         th{
@@ -46,37 +46,96 @@
 </head>
 <body>
     <div class="container-fluid">
-        <table>
-            <thead>
+
+
+        <h2 style="text-align: center">SLIP GAJI LAUNDRY ANDA</h2>
+        <hr>
+        <table style=" text-align: left">
+           
                 <tr>
-                    {{-- <th colspan="4">Invoice <strong>{{$data->invoice}}</strong></th>
-                    <th>{{ $data->created_at->format('d-M-Y') }}</th> --}}
+                    <th>Nama : {{ $gaji->user->name }}</th>
+                   
                 </tr>
-               
-            </thead>
-            <tbody>
+
                 <tr>
-                    <th class="text-center">#</th>
-                    <th>Jenis Pakaian</th>
-                    <th class="text-right">Berat</th>
-                    <th class="text-right">Harga</th>
-                    <th class="text-right">Total</th>
+                    <th colspan="1">Jabatan : {{ $gaji->user->role }}</th>
                 </tr>
-              
-                <td>{{ $gaji->user->name }}</td>
-                  <td>{{ $gaji->tgl_awal }} - {{ $gaji->tgl_akhir }}</td>
-                  <td>{{ Rupiah($gaji->absen) }}</td>
-                  <td>{{ Rupiah($gaji->uang_makan) }}</td>
-                  <td>{{ Rupiah($gaji->uang_transport) }}</td>
-                  <td>{{ Rupiah($gaji->uang_lembur) }}</td>
-                  <td>{{ Rupiah($gaji->bonus) }}</td>
-                  <td>{{ Rupiah($gaji->total) }}</td>
-              
+
                 <tr>
-               
-            </tbody>
-            
+                    
+                    <th>Periode : {{ $gaji->tgl_awal }} - {{ $gaji->tgl_akhir }}</th>
+                </tr>
+    
+         
         </table>
+
+        <hr>
+
+        <table>
+            <tr>
+              
+                <td colspan="1">
+                    Sistem Pembayaran : Transfer
+                </td>
+                <td colspan="5"></td>
+                <td>Gaji Pokok : </td>
+                <td>{{ Rupiah($gaji->absen) }}</td>
+            
+            </tr>
+
+            <tr>
+               
+                <td></td>
+                <td colspan="5"></td>
+                <td style="margin-right: auto">Uang Makan : </td>
+              <td>{{ Rupiah($gaji->uang_makan) }}</td>
+            </tr>
+            <tr>
+                <td></td>
+               
+                <td colspan="5"></td>
+              
+                <td>Uang Transport : </td>
+              <td>{{ Rupiah($gaji->uang_transport) }}</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td colspan="5"></td>
+              
+                <td>Uang Lembur : </td>
+                <td>{{ Rupiah($gaji->uang_lembur) }}</td>
+              
+            </tr>
+            <tr>
+               <td></td>
+                <td colspan="5"></td>
+                <td>Bonus Tambahan : </td>
+                <td>{{ Rupiah($gaji->bonus) }}</td>
+            
+            </tr>
+          
+        </table>
+      
+     <hr>
+     
+     <table>
+          
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+             <td><b> Total : </b></td>
+           <td><strong> {{ Rupiah($gaji->total) }} </strong></td>
+         </tr>
+
+       
+     </table>
+     
+     <hr>
+     
     </div>
 </body>
 </html>

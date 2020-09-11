@@ -31,7 +31,7 @@
                 </div>
 
             <div class="form-group">
-              <label>Jenis Pakaian</label>
+              <label>Jenis Paket</label>
               <input type="text" name="jenis" class="form-control" value="{{ $harga->jenis }}">
             </div>
            

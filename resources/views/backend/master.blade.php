@@ -59,9 +59,14 @@
             <img alt="image" src="{{asset('/backend')}}/assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">{{ auth()->user()->email }}</div></a>
             <div class="dropdown-menu dropdown-menu-right">
+              @if (auth()->user()->role == 'karyawan')
+                  
               <a href="/karyawan/{{ auth()->user()->id }}/edit" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Profile
               </a>
+
+              
+              @endif
               <a href="/password/{{ auth()->user()->id }}/edit" class="dropdown-item has-icon">
                 <i class="far fa-user"></i> Ganti Password
               </a>

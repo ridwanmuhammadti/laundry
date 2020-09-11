@@ -86,6 +86,6 @@ class GajiController extends Controller
 
     public function cetak($id){
         $gaji = Gaji::find($id);
-        return PDF::loadview('laporan.cetak-gaji',compact('gaji'))->setPaper('legal', 'landscape')->stream();
+        return PDF::loadview('laporan.cetak-gaji',compact('gaji'))->setPaper('legal', 'potrait')->stream();
     }
 }
