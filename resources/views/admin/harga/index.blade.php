@@ -61,7 +61,7 @@
       <div class="col-12 col-md-8 col-lg-8">
           <div class="card">
               <div class="card-body">
-                <table class="table table-striped" id="table-1">
+                <table class="table table-striped" id="myTable">
                     <thead>
                       <tr>
                         <th scope="col">Jenis</th>
@@ -119,4 +119,36 @@
           });
       });
     </script>
+@endsection
+
+
+@section('script')
+    <script>
+      $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
+
+    
+<script>
+  $('.delete').click(function(){
+    var harga_id = $(this).attr('harga-id');
+    swal({
+        title: "Yakin?",
+        text: "Mau dihapus Data harga dengan Id "+harga_id+" ??",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        console.log(willDelete);
+        if (willDelete) {
+          window.location = "/harga/"+harga_id+"/destroy";
+          swal("Data Berhasil dihapus !!", {
+            icon: "success",
+          });
+        } 
+      });
+  });
+</script>
 @endsection

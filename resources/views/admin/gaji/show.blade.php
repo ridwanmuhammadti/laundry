@@ -10,7 +10,7 @@
       <div class="card">
           <div class="card">
             <div class="card-body">
-          <table class="table table-striped" id="table-1">
+          <table class="table table-striped" id="myTable">
             <thead>
               <tr>
                 <th>Nama</th>
@@ -49,4 +49,13 @@
       </div>
     </div>
   </div>
+@endsection
+
+
+@section('script')
+    <script>
+      $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
 @endsection

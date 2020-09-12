@@ -18,7 +18,7 @@
           @endif
           <div class="card">
             <div class="card-body">
-          <table class="table table-striped" id="table-1">
+          <table class="table table-striped" id="myTable">
             <thead>
               <tr>
                 <th>No</th>
@@ -51,8 +51,8 @@
                   <td>{{ $item->alamat }}</td>
                   <td>{{ $item->no_telp }}</td>
                 <td>
-                  <a href="/customer/{{$item->id}}/edit" class="btn btn-warning btn-sm">Edit</a>
-                  <a href="/customer/{{$item->id}}/destroy" class="btn btn-danger btn-sm">Hapus</a>
+                  <a href="/customer/{{$item->id}}/edit"class="btn btn-warning btn-sm"><i class="far fa-edit"></i></a>
+                  <a href="#" class="btn btn-danger btn-sm delete" customer-id="{{ $item->id }}"><i class="far fa-trash-alt"></i></a>
                 </td>
                 <td>
                   <a href="/customer/{{ $item->id }}/show" class="btn btn-sm btn-primary"><i class="fas fa-search-dollar"></i></i></a>
@@ -71,4 +71,36 @@
       </div>
     </div>
   </div>
+@endsection
+
+
+@section('script')
+    <script>
+      $(document).ready( function () {
+    $('#myTable').DataTable();
+} );
+    </script>
+
+      
+<script>
+  $('.delete').click(function(){
+    var customer_id = $(this).attr('customer-id');
+    swal({
+        title: "Yakin?",
+        text: "Mau dihapus Data customer dengan Id "+customer_id+" ??",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        console.log(willDelete);
+        if (willDelete) {
+          window.location = "/customer/"+customer_id+"/destroy";
+          swal("Data Berhasil dihapus !!", {
+            icon: "success",
+          });
+        } 
+      });
+  });
+</script>
 @endsection

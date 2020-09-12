@@ -12,7 +12,7 @@
 
   <!-- CSS Libraries -->
   <link rel="stylesheet" href="{{asset('/backend')}}/assets/modules/bootstrap-daterangepicker/daterangepicker.css">
-
+  <link rel="stylesheet" href="//cdn.datatables.net/1.10.21/css/jquery.dataTables.min.css">
   <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 
   <link rel="stylesheet" href="{{asset('/backend')}}/assets/modules/datatables/datatables.min.css">
@@ -190,7 +190,7 @@
 <!-- JS Libraies -->
 
 <script src="{{asset('/backend')}}/assets/modules/izitoast/js/iziToast.min.js"></script>
-
+<script src="//cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('/backend')}}/assets/modules/datatables/datatables.min.js"></script>
 <script src="{{asset('/backend')}}/assets/modules/datatables/DataTables-1.10.16/js/dataTables.bootstrap4.min.js"></script>
 <script src="{{asset('/backend')}}/assets/modules/datatables/Select-1.2.4/js/dataTables.select.min.js"></script>
@@ -203,6 +203,7 @@
 
 <script src="{{asset('/backend')}}/assets/modules/bootstrap-daterangepicker/daterangepicker.js"></script>
 <!-- Page Specific JS File -->
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 <script src="{{asset('/backend')}}/assets/js/page/modules-datatables.js"></script>
 <script src="{{asset('/backend')}}/assets/js/page/modules-sweetalert.js"></script>
