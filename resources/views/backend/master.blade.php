@@ -86,7 +86,7 @@
       <div class="main-sidebar sidebar-style-2">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Laundry</a>
+            <a href="/suara">Suara</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="index.html">St</a>
@@ -98,14 +98,23 @@
             <li class="dropdown">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Dashboard</span></a>
               <ul class="dropdown-menu">
-                <li><a class="nav-link" href="/dashboard">Laundry</a></li>
+                {{-- <li><a class="nav-link" href="/dashboard">Laundry</a></li>
                 <li><a href="/dashboard/keuangan" class="nav-link">Keuangan</a></li>
-                
+                 --}}
               </ul>
             </li>
             <li class="menu-header">Starter</li>
             @if (auth()->user()->role == 'admin')
-            <li class="dropdown">
+
+             <li class="dropdown">
+              <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Suara</span></a>
+              <ul class="dropdown-menu">
+                <li><a href="/suara" class="nav-link">Suara</a></li>
+                <li><a href="/laporan/suara" class="nav-link">Laporan</a></li>
+                
+              </ul>
+            </li>
+            {{-- <li class="dropdown">
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Users</span></a>
               <ul class="dropdown-menu">
                 <li><a href="/karyawan" class="nav-link">Karyawan</a></li>
@@ -118,9 +127,9 @@
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Data Laundry</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/harga">Paket Laundry</a></li>
-                {{-- <li><a href="/transaksi" class="nav-link">Trash</a></li> --}}
+                 <li><a href="/transaksi" class="nav-link">Trash</a></li> --}}
                 
-              </ul>
+              {{-- </ul>
             </li>
                 
             <li><a class="nav-link" href="/customer"><i class="far fa-user"></i> <span>Customers</span></a></li>
@@ -131,10 +140,10 @@
               <a href="#" class="nav-link has-dropdown" data-toggle="dropdown"><i class="fas fa-columns"></i> <span>Laporan</span></a>
               <ul class="dropdown-menu">
                 <li><a class="nav-link" href="/laporan/laundry">Laundry</a></li>
-                {{-- <li><a href="/transaksi" class="nav-link">Trash</a></li> --}}
+                <li><a href="/transaksi" class="nav-link">Trash</a></li>
                 
-              </ul>
-            </li>
+              </ul> 
+            </li> --}}
             @elseif ( auth()->user()->role == 'karyawan')
                 
            
@@ -168,7 +177,7 @@
 
       <footer class="main-footer">
         <div class="footer-left">
-          Copyright &copy; 2020 <div class="bullet"></div> Arsya Laundry</a>
+          Copyright &copy; 2020 <div class="bullet"></div> Suara Laundry</a>
         </div>
         <div class="footer-right">
           

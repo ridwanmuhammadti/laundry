@@ -81,4 +81,23 @@ class LaporanController extends Controller
         $pdf->setPaper('a4', 'landscape');
         return $pdf->stream('Laporan Riwayat .pdf');
     }
+
+    public function cetaktahun2019(){
+        $tahun = Transaksi::whereYear('updated_at', '=', 2019)
+        ->get();
+        // dd($tahun);
+        return PDF::setOptions(['images' => true, 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('laporan.cetak-tahun-transaksi', compact('tahun'))->setPaper('legal', 'landscape')->stream();
+    }
+    public function cetaktahun2020(){
+        $tahun = Transaksi::whereYear('updated_at', '=', 2020)
+        ->get();
+        // dd($tahun);
+        return PDF::setOptions(['images' => true, 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('laporan.cetak-tahun-transaksi', compact('tahun'))->setPaper('legal', 'landscape')->stream();
+    }
+    public function cetaktahun2021(){
+        $tahun = Transaksi::whereYear('updated_at', '=', 2021)
+        ->get();
+        // dd($tahun);
+        return PDF::setOptions(['images' => true, 'isHtml5ParserEnabled' => true, 'isRemoteEnabled' => true])->loadview('laporan.cetak-tahun-transaksi', compact('tahun'))->setPaper('legal', 'landscape')->stream();
+    }
 }

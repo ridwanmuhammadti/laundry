@@ -24,7 +24,19 @@ Route::get('/logout','AuthController@logout');
 
 Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
 
+    Route::get('/suara','SuaraController@index');
+    Route::post('/suara/store','SuaraController@store');
+    Route::get('/suara/{id}/edit','SuaraController@edit');
+    Route::post('/suara/{id}/update','SuaraController@update');
+    Route::get('/suara/{id}/destroy','SuaraController@destroy');
+    Route::get('/laporan/suara','SuaraController@laporan');
+
+    Route::get('/suara/export','SuaraController@export');
+    Route::post('/cetak/kelurahan','SuaraController@exportkelurahan');
     
+    Route::get('/suara/cetak','SuaraController@cetaksuara');
+
+
     Route::get('/karyawan','KaryawanController@index');
     Route::get('/karyawan/create','KaryawanController@create');
     Route::post('/karyawan/store','KaryawanController@store');
@@ -47,6 +59,11 @@ Route::group(['middleware' => ['auth','CheckRole:admin']], function () {
     Route::get('/laundry/cetak','LaporanController@cetaklaundry');
     Route::post('/cetak/laundry/filterwaktu','LaporanController@cetakfilterlaundry');
     Route::post('/cetak/customer','LaporanController@cetakcustomer');
+
+    
+    Route::get('/laundry/cetak/tahun/2019','LaporanController@cetaktahun2019');
+    Route::get('/laundry/cetak/tahun/2020','LaporanController@cetaktahun2020');
+    Route::get('/laundry/cetak/tahun/2021','LaporanController@cetaktahun2021');
 
 });
 

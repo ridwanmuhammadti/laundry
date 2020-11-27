@@ -1,7 +1,7 @@
 @extends('backend.master')
 
 @section('judul')
-    Data Harga
+    Data Paket
 @endsection
 
 @section('content')
@@ -9,7 +9,7 @@
     <div class="col-12 col-md-4 col-lg-4">
         <div class="card">
           <div class="card-header">
-            <h4>Tambah Data Harga</h4>
+            <h4>Tambah Data Paket</h4>
           </div>
           <div class="card-body">
             {{-- <div class="alert alert-info">
@@ -61,7 +61,7 @@
       <div class="col-12 col-md-8 col-lg-8">
           <div class="card">
               <div class="card-body">
-                <table class="table table-striped" id="myTable">
+                <table class="table table-striped" id="Table">
                     <thead>
                       <tr>
                         <th scope="col">Jenis</th>
@@ -99,33 +99,8 @@
 
 @section('script')
     <script>
-      $('.delete').click(function(){
-        var harga_id = $(this).attr('harga-id');
-        swal({
-            title: "Yakin?",
-            text: "Mau dihapus Data harga dengan Id "+harga_id+" ??",
-            icon: "warning",
-            buttons: true,
-            dangerMode: true,
-          })
-          .then((willDelete) => {
-            console.log(willDelete);
-            if (willDelete) {
-              window.location = "/harga/"+harga_id+"/destroy";
-              swal("Data Berhasil dihapus !!", {
-                icon: "success",
-              });
-            } 
-          });
-      });
-    </script>
-@endsection
-
-
-@section('script')
-    <script>
       $(document).ready( function () {
-    $('#myTable').DataTable();
+    $('#Table').DataTable();
 } );
     </script>
 
